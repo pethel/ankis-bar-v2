@@ -2,6 +2,7 @@
 
 exports.post  = function(req) {
     var portal = require('/lib/xp/portal');
+
     return {
         redirect: portal.pageUrl({id: portal.getSite()._id}),
         cookies: {
@@ -14,7 +15,6 @@ exports.post  = function(req) {
 exports.get = function() {
 
     var thymeleaf = require('/lib/xp/thymeleaf');
-
     var view = resolve('default.html');
     var portal = require('/lib/xp/portal');
 
@@ -23,10 +23,8 @@ exports.get = function() {
 
     var model = {mainRegion: mainRegion};
 
-    var body = thymeleaf.render(view, model);
-
     return {
-        body: body,
+        body: thymeleaf.render(view, model),
         contentType: 'text/html'
     };
 

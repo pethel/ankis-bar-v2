@@ -1,14 +1,15 @@
 <header>
     <nav>
         <a data-th-each="menuItem : ${menuItems}"
+           data-th-href="${portal.pageUrl({#strings.concat('_path=', menuItem.path)})}"
            data-th-text="${portal.localize({#strings.concat('_key=', menuItem.name)})}">menuItem</a>
     </nav>
 
     <form action="" method="post">
         <select name="locale"  id="">
-            <option value="se">se</option>
-            <option value="no">no</option>
-            <option value="en">en</option>
+            <option value="se" data-th-selected="('se' == ${selectedLocale})">se</option>
+            <option value="no" data-th-selected="('no' == ${selectedLocale})">no</option>
+            <option value="en" data-th-selected="('en' == ${selectedLocale})">en</option>
         </select>
         <input type="submit">
     </form>
