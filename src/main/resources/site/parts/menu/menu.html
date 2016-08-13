@@ -1,7 +1,16 @@
-<section>
-    <div data-th-text="${portal.localize({'_key=user.greeting','_locale=en', '_values=99'})}">Not translated</div>
-    <h2>A list of my favorite things</h2>
-    <ul class="item" data-th-each="thing : ${things}">
-        <li data-th-text="${thing}">A thing will appear here.</li>
-    </ul>
-</section>
+<header>
+    <nav>
+        <a data-th-each="menuItem : ${menuItems}"
+           data-th-text="${portal.localize({#strings.concat('_key=', menuItem.name)})}">menuItem</a>
+    </nav>
+
+    <form action="" method="post">
+        <select name="locale"  id="">
+            <option value="se">se</option>
+            <option value="no">no</option>
+            <option value="en">en</option>
+        </select>
+        <input type="submit">
+    </form>
+
+</header>

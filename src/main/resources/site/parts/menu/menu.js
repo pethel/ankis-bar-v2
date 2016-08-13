@@ -1,10 +1,16 @@
+var menu = require('/lib/menu');
 
 
 // Handle GET requests
-exports.get = function(portal) {
+exports.get = function(req) {
 
     var portal = require('/lib/xp/portal'); // Import the portal functions
     var thymeleaf = require('/lib/xp/thymeleaf'); // Import the thymeleaf render function
+
+
+    var menuItems = menu.getSiteMenu();
+    //log.info('%s', req);
+
 
     // Find the current component from request
     var component = portal.getComponent();
@@ -15,7 +21,8 @@ exports.get = function(portal) {
     // Define the model
     var model = {
         component: component,
-        things: things
+        menuItems: menuItems,
+        things: things,
     };
 
     // Resolve the view

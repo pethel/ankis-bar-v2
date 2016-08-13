@@ -1,5 +1,17 @@
 var thymeleaf = require('/lib/xp/thymeleaf');
-var portal = require('/lib/xp/portal');
+
+exports.post  = function(req) {
+    var portal = require('/lib/xp/portal');
+    log.info('params === %s', req.params);
+
+    return {
+        redirect: portal.pageUrl({id: portal.getSite()._id}),
+        cookies: {
+            'locale': req.params.locale
+        }
+    }
+
+};
 
 exports.get = function(req) {
 
@@ -9,15 +21,9 @@ exports.get = function(req) {
     // Define the model
     var content = portal.getContent();
 
-
-
     var mainRegion = content.page.regions["main"];
 
-
-    var model = {
-        name: "Michael",
-        mainRegion: mainRegion
-    };
+    var model = {mainRegion: mainRegion};
 
     // Render a thymeleaf template
     var body = thymeleaf.render(view, model);
