@@ -1,0 +1,7 @@
+<section>
+    <div data-th-text="${portal.localize({'_key=user.greeting','_locale=en', '_values=99'})}">Not translated</div>
+    <h2>A list of my favorite things</h2>
+    <ul class="item" data-th-each="thing : ${things}">
+        <li data-th-text="${thing}">A thing will appear here.</li>
+    </ul>
+</section>
