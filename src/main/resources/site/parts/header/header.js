@@ -13,7 +13,7 @@ exports.get = function (req) {
         selectedLocale: req.cookies.locale || 'se'
     };
 
-    var view = resolve('menu.html');
+    var view = resolve('header.html');
 
     return {
         body: thymeleaf.render(view, model),
