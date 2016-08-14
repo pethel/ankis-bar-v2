@@ -2,7 +2,9 @@
 
   .menu-background {
     background: $header-color;
-    color: white;
+    a {
+      color: white;
+    }
   }
 
   .menu-drop-down {
@@ -14,6 +16,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1rem;
+  }
+
+  a {
+    text-decoration: none;
   }
 
 }
@@ -72,3 +78,54 @@
 .menu-toolbar {
   display: flex;
 }
+
+.flag {
+  width: 20px;
+  height: 20px;
+}
+
+.country-select {
+
+  margin-right: 1rem;
+  position: relative;
+
+  div, li {
+    cursor: pointer;
+    background: white;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 3px;
+    span{
+      margin-right: 0.5rem;
+    }
+  }
+
+  li {
+    &:hover {
+      background: #d3efff;
+    }
+    span{
+      margin-right: 0.5rem;
+    }
+  }
+
+  ul {
+    position: absolute;
+    border: 1px solid #d3efff;
+    display: none;
+    overflow: hidden;
+  }
+
+  &.open {
+    ul {
+      display: block;
+    }
+  }
+
+  input[type="submit"] {
+    display: none;
+  }
+}
+
+

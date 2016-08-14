@@ -1,24 +1,10 @@
 @font-face {
-  font-family: 'OpenSans-Semibold';
-  src: url("#{$fontPath}OpenSans-Semibold.ttf");
-}
-
-@font-face {
   font-family: 'OpenSans-Regular';
-  src: url("#{$fontPath}OpenSans-Regular.ttf");
+  src: url("#{$fontPath}open-sans.regular.ttf");
 }
 
 @font-face {
   font-family: 'OpenSans-Light';
-  src: url("#{$fontPath}OpenSans-Light.ttf");
+  src: url("#{$fontPath}open-sans.light.ttf");
 }
 
-@font-face {
-  font-family: 'OpenSans-Bold';
-  src: url("#{$fontPath}OpenSans-Bold.ttf");
-}
-
-@font-face {
-  font-family: 'OpenSans-Italic';
-  src: url("#{$fontPath}OpenSans-Italic.ttf");
-}
