@@ -14,7 +14,7 @@ exports.post = function (req) {
 
 };
 
-exports.get = function () {
+exports.get = function (req) {
 
     var thymeleaf = require('/lib/xp/thymeleaf');
     var view = resolve('default.html');
@@ -23,7 +23,10 @@ exports.get = function () {
     var content = portal.getContent();
     var mainRegion = content.page.regions['main'];
 
-    var model = {mainRegion: mainRegion};
+    var model = {
+        mainRegion: mainRegion,
+        selectedLocale: req.cookies.locale || 'se'
+    };
 
     return {
         body: thymeleaf.render(view, model),
