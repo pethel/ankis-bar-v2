@@ -15,6 +15,13 @@ module.exports = {
         filename: 'build/main.js'
     },
     module: {
+        preLoaders: [
+            {
+                test: /assets\/.*\.js?$/,
+                exclude: /node_modules/,
+                loaders: ['eslint-loader']
+            }
+        ],
         loaders: [
             {
                 test: /\.js?$/,
