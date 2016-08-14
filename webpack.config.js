@@ -22,8 +22,9 @@ const getPlugins = function () {
 module.exports = {
     entry: path.join(__dirname, paths.assets, 'index.js'),
     output: {
-        path: path.join(__dirname, paths.assets),
-        filename: 'build/main.js'
+        path: path.join(__dirname, paths.assets, '/build'),
+        filename: 'main.js',
+        publicPath: '_/asset/npo.ankis.hp/build/',
     },
     plugins: getPlugins(),
     module: {
