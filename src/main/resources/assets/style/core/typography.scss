@@ -1,0 +1,11 @@
+body {
+  font-family: 'OpenSans-Regular', sans-serif;
+}
+
+h1 {
+  font-family: 'OpenSans-Light', sans-serif;
+  font-size: 1.5625rem;
+  &.regular {
+    font-family: 'OpenSans-Regular', sans-serif;
+  }
+}

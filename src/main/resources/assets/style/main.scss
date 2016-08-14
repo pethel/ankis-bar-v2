@@ -1,11 +1,14 @@
-@import "reset";
-@import "constants";
-@import "fonts";
+@import "core/reset";
+@import "core/constants";
+@import "core/fonts";
+@import "core/typography";
+@import "core/spacing";
+
+@import "header";
 
 html {
   box-sizing: border-box;
   font-size: 16px;
-  font-family: 'OpenSans-Regular';
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -23,5 +26,11 @@ body {
 
 }
 
+
+.grid-container {
+  width : 100%;
+  max-width : 1200px;
+  margin: 0 auto;
+}
 
 
