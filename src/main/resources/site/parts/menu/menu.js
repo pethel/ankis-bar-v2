@@ -10,7 +10,7 @@ exports.get = function (req) {
     var model = {
         component: component,
         menuItems: menuItems,
-        selectedLocale: req.cookies.locale
+        selectedLocale: req.cookies.locale || 'se'
     };
 
     var view = resolve('menu.html');
