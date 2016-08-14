@@ -1,12 +1,23 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 const paths = {
     assets: 'src/main/resources/assets/'
 };
 
-
-console.log(path.resolve('..'));
+const getPlugins = function () {
+    return [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            }
+        })
+    ];
+};
 
 module.exports = {
     entry: path.join(__dirname, paths.assets, 'index.js'),
@@ -14,6 +25,7 @@ module.exports = {
         path: path.join(__dirname, paths.assets),
         filename: 'build/main.js'
     },
+    plugins: getPlugins(),
     module: {
         preLoaders: [
             {
