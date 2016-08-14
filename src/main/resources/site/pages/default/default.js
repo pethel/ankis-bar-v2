@@ -1,25 +1,27 @@
-
-
-exports.post  = function(req) {
+exports.post = function (req) {
     var portal = require('/lib/xp/portal');
 
     return {
         redirect: portal.pageUrl({id: portal.getSite()._id}),
         cookies: {
-            'locale': req.params.locale
+            locale: {
+                value: req.params.locale,
+                path: '/',
+                maxAge: 2000,
+            }
         }
     }
 
 };
 
-exports.get = function() {
+exports.get = function () {
 
     var thymeleaf = require('/lib/xp/thymeleaf');
     var view = resolve('default.html');
     var portal = require('/lib/xp/portal');
 
     var content = portal.getContent();
-    var mainRegion = content.page.regions["main"];
+    var mainRegion = content.page.regions['main'];
 
     var model = {mainRegion: mainRegion};
 

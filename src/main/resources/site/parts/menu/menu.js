@@ -1,7 +1,5 @@
 exports.get = function (req) {
 
-    log.info('%s', req);
-
     var portal = require('/lib/xp/portal');
     var thymeleaf = require('/lib/xp/thymeleaf');
     var menu = require('/lib/menu');
