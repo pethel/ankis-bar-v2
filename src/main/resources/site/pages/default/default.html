@@ -7,7 +7,7 @@
     <div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
         <div data-portal-component="${component.path}" data-th-remove="tag"/>
     </div>
-    <script data-th-src="${portal.assetUrl({'_path=js/main.js'})}" src="../../../assets/js/main.js"></script>
+    <script data-th-src="${portal.assetUrl({'_path=build/main.js'})}" src="../../../assets/build/main.js"></script>
 </div>
 </body>
 </html>
