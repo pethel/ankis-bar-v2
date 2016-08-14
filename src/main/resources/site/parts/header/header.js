@@ -7,10 +7,13 @@ exports.get = function (req) {
     var menuItems = menu.getSiteMenu();
     var component = portal.getComponent();
 
+    var homeUrl = portal.pageUrl({id: portal.getSite()._id});
+
     var model = {
         component: component,
         menuItems: menuItems,
-        selectedLocale: req.cookies.locale || 'se'
+        selectedLocale: req.cookies.locale || 'se',
+        homeUrl: homeUrl
     };
 
     var view = resolve('header.html');

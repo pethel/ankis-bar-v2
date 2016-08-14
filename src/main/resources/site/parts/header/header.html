@@ -1,23 +1,38 @@
 <header class="main-header" role="banner">
 
-  <div class="grid-container">
-    <h1>Ankis Bar</h1>
-    <span class="test"></span>
-    <div class="menu">
-      <nav>
-        <a data-th-each="menuItem : ${menuItems}"
-           data-th-href="${portal.pageUrl({#strings.concat('_path=', menuItem.path)})}"
-           data-th-text="${portal.localize({#strings.concat('_key=', menuItem.name), #strings.concat('_locale=', selectedLocale)})}">menuItem</a>
-      </nav>
-      <form action="" method="post">
-        <select name="locale" id="">
-          <option value="se" data-th-selected="('se' == ${selectedLocale})">se</option>
-          <option value="no" data-th-selected="('no' == ${selectedLocale})">no</option>
-          <option value="en" data-th-selected="('en' == ${selectedLocale})">en</option>
-        </select>
-        <input type="submit">
-      </form>
-
+  <div class="menu-background">
+    <div class="grid-container">
+      <a data-th-href="${homeUrl}">
+        <h1>Ankis Bar</h1>
+      </a>
+      <div class="menu-toolbar">
+        <form action="" method="post">
+          <select name="locale" id="">
+            <option value="se" data-th-selected="('se' == ${selectedLocale})">se</option>
+            <option value="no" data-th-selected="('no' == ${selectedLocale})">no</option>
+            <option value="en" data-th-selected="('en' == ${selectedLocale})">en</option>
+          </select>
+          <input type="submit">
+        </form>
+        <a href="#" class="main-menu js-main-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
     </div>
   </div>
+  <div class=" menu-drop-down">
+    <div class="grid-container">
+      <nav>
+        <ul>
+          <li data-th-each="menuItem : ${menuItems}">
+            <a data-th-href="${portal.pageUrl({#strings.concat('_path=', menuItem.path)})}"
+               data-th-text="${portal.localize({#strings.concat('_key=', menuItem.name), #strings.concat('_locale=', selectedLocale)})}">menuItem</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
 </header>

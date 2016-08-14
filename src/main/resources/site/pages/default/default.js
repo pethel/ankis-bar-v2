@@ -1,4 +1,5 @@
 exports.post = function (req) {
+
     var portal = require('/lib/xp/portal');
 
     return {
@@ -7,7 +8,7 @@ exports.post = function (req) {
             locale: {
                 value: req.params.locale,
                 path: '/',
-                maxAge: 2000,
+                maxAge: 2000000,
             }
         }
     }
