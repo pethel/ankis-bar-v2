@@ -2,9 +2,8 @@
     <nav>
         <a data-th-each="menuItem : ${menuItems}"
            data-th-href="${portal.pageUrl({#strings.concat('_path=', menuItem.path)})}"
-           data-th-text="${portal.localize({#strings.concat('_key=', menuItem.name)})}">menuItem</a>
+           data-th-text="${portal.localize({#strings.concat('_key=', menuItem.name)}, {#strings.concat('_locale', selectedLocale)})}">menuItem</a>
     </nav>
-
     <form action="" method="post">
         <select name="locale"  id="">
             <option value="se" data-th-selected="('se' == ${selectedLocale})">se</option>
