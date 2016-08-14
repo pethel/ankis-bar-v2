@@ -3,11 +3,9 @@
 <head>
 </head>
 <body>
-<div data-portal-region="main">
-    <div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
-        <div data-portal-component="${component.path}" data-th-remove="tag"/>
-    </div>
-    <script data-th-src="${portal.assetUrl({'_path=build/main.js'})}" src="../../../assets/build/main.js"></script>
+<div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
+  <div data-portal-component="${component.path}" data-th-remove="tag"/>
 </div>
+<script data-th-src="${portal.assetUrl({'_path=build/main.js'})}" src="../../../assets/build/main.js"></script>
 </body>
 </html>
