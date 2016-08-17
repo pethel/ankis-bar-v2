@@ -2,7 +2,9 @@
 
   .menu-background {
     background: $header-color;
-    color: white;
+    a {
+      color: white;
+    }
   }
 
   .menu-drop-down {
@@ -16,11 +18,15 @@
     padding: 1rem 1rem;
   }
 
+  a {
+    text-decoration: none;
+  }
+
 }
 
 .main-menu {
   width: 30px;
-  height: 20px;
+  height: 27px;
   position: relative;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
@@ -41,19 +47,19 @@
   }
 
   span:nth-child(1) {
-    top: 0;
+    top: 2px;
   }
   span:nth-child(2) {
-    top: 8px;
+    top: 11px;
   }
   span:nth-child(3) {
-    top: 16px;
+    top: 20px;
   }
 
   &.open {
     span:nth-child(1) {
       transform: rotate(45deg);
-      top: -3px;
+      top: 0;
       left: 4px;
     }
     span:nth-child(2) {
@@ -62,7 +68,7 @@
     }
     span:nth-child(3) {
       transform: rotate(-45deg);
-      top: 18px;
+      top: 21px;
       left: 4px;
     }
   }
@@ -72,3 +78,55 @@
 .menu-toolbar {
   display: flex;
 }
+
+.flag {
+  width: 20px;
+  height: 20px;
+}
+
+.country-select {
+
+  margin-right: 1rem;
+  position: relative;
+
+  div, li {
+    cursor: pointer;
+    background: white;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    span{
+      margin-right: 0.5rem;
+    }
+  }
+
+  li {
+    &:hover {
+      background: #d3efff;
+    }
+    span{
+      margin-right: 0.5rem;
+    }
+  }
+
+  ul {
+    position: absolute;
+    border: 1px solid #d3efff;
+    display: none;
+    overflow: hidden;
+  }
+
+  &.open {
+    ul {
+      display: block;
+    }
+  }
+
+  input[type="submit"] {
+    display: none;
+  }
+}
+
+
