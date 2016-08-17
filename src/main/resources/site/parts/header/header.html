@@ -8,33 +8,50 @@
       <div class="menu-toolbar">
         <form action="" method="post" class="country-select">
           <input type="hidden" name="locale" data-th-value="${selectedLocale}"/>
-          <div>
+          <div aria-haspopup="true"
+               aria-controls="language-dropdown">
             <span data-th-text="${portal.localize({#strings.concat('_key=', selectedLocale)})}">Norsk</span>
             <img class="flag"
                  data-th-src="${portal.assetUrl({#strings.concat('_path=style/img/flags/', selectedLocale, '.svg')})}"
-                 data-th-alt="${portal.localize({#strings.concat('_key=', selectedLocale, '.alt')})}" />
+                 data-th-alt="${portal.localize({#strings.concat('_key=', selectedLocale, '.alt')})}"/>
           </div>
-          <ul>
-            <li data-th-if="${selectedLocale  != 'se'}"  data-th-attr="data-locale=se">
-              <span data-th-text="${portal.localize({'_key=se'})}">Svenska</span>
+          <ul role="menubar" id="language-dropdown">
+            <li data-th-if="${selectedLocale  != 'se'}"
+                data-th-attr="data-locale=se"
+                role="menuitem"
+                aria-haspopup="false"
+                aria-labelledby="se-label">
+              <span id="se-label" data-th-text="${portal.localize({'_key=se'})}">Svenska</span>
               <img class="flag"
                    data-th-src="${portal.assetUrl({'_path=style/img/flags/se.svg'})}"
                    data-th-alt="${portal.localize({'_key=se.alt'})}"/>
             </li>
-            <li data-th-if="${selectedLocale != 'no'}" data-th-attr="data-locale=no">
-              <span data-th-text="${portal.localize({'_key=no'})}">Norsk</span>
+            <li data-th-if="${selectedLocale != 'no'}"
+                data-th-attr="data-locale=no"
+                role="menuitem"
+                aria-haspopup="false"
+                aria-labelledby="no-label">
+              <span id="no-label" data-th-text="${portal.localize({'_key=no'})}">Norsk</span>
               <img class="flag"
                    data-th-src="${portal.assetUrl({'_path=style/img/flags/no.svg'})}"
                    data-th-alt="${portal.localize({'_key=no.alt'})}"/>
             </li>
-            <li data-th-if="${selectedLocale != 'en'}" data-th-attr="data-locale=en">
-              <span data-th-text="${portal.localize({'_key=en'})}">English</span>
+            <li data-th-if="${selectedLocale != 'en'}"
+                data-th-attr="data-locale=en"
+                role="menuitem"
+                aria-haspopup="false"
+                aria-labelledby="en-label">
+              <span id="en-label" data-th-text="${portal.localize({'_key=en'})}">English</span>
               <img class="flag"
                    data-th-src="${portal.assetUrl({'_path=style/img/flags/en.svg'})}"
                    data-th-alt="${portal.localize({'_key=en.alt'})}"/>
             </li>
-            <li data-th-if="${selectedLocale != 'de'}" data-th-attr="data-locale=de">
-              <span data-th-text="${portal.localize({'_key=de'})}">Deutch</span>
+            <li data-th-if="${selectedLocale != 'de'}"
+                data-th-attr="data-locale=de"
+                role="menuitem"
+                aria-haspopup="false"
+                aria-labelledby="de-label">
+              <span id="de-label" data-th-text="${portal.localize({'_key=de'})}">Deutch</span>
               <img class="flag"
                    data-th-src="${portal.assetUrl({'_path=style/img/flags/de.svg'})}"
                    data-th-alt="${portal.localize({'_key=de.alt'})}"/>
