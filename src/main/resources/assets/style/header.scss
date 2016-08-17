@@ -79,9 +79,11 @@
   display: flex;
 }
 
+$flag-size: 20px;
+
 .flag {
-  width: 20px;
-  height: 20px;
+  width: $flag-size;
+  height: $flag-size;
 }
 
 .country-select {
