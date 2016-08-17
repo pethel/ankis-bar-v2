@@ -1,0 +1,13 @@
+.main-footer {
+  margin-top: auto;
+  border-top: 4px solid $header-color;
+  .grid-container {
+    padding: 1rem 1rem;
+  }
+  address {
+    >:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+  
+}
