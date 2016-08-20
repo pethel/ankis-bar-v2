@@ -7,8 +7,22 @@
     }
   }
 
+  $menu-width: 300px;
+
   .menu-drop-down {
-    background: gray;
+    background: #3CB5F9;
+    position: fixed;
+    width: $menu-width;
+    right: -$menu-width;
+    margin-top: 30px;
+    transition:right 1.0s cubic-bezier(0, 1, 0.5, 1);
+    &.open {
+      right: 0;
+    }
+
+    a {
+      color: white;
+    }
   }
 
   .grid-container {
@@ -99,7 +113,7 @@ $flag-size: 20px;
     align-items: center;
     justify-content: space-between;
     padding: 3px;
-    span{
+    span {
       margin-right: 0.5rem;
     }
   }
@@ -108,7 +122,7 @@ $flag-size: 20px;
     &:hover {
       background: #d3efff;
     }
-    span{
+    span {
       margin-right: 0.5rem;
     }
   }

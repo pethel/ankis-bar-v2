@@ -59,7 +59,11 @@
           </ul>
           <input type="submit">
         </form>
-        <a href="#" class="main-menu js-main-menu">
+        <a href="#"
+           class="main-menu"
+           id="js-main-menu"
+           aria-haspopup="true"
+           aria-controls="main-navigation">
           <span></span>
           <span></span>
           <span></span>
@@ -67,9 +71,10 @@
       </div>
     </div>
   </div>
-  <div class=" menu-drop-down">
+  <div id="js-menu-drop-down"
+       class="menu-drop-down">
     <div class="grid-container">
-      <nav>
+      <nav id="main-navigation">
         <ul>
           <li data-th-each="menuItem : ${menuItems}">
             <a data-th-href="${portal.pageUrl({#strings.concat('_path=', menuItem.path)})}"
