@@ -1,0 +1,49 @@
+.menu {
+  padding: 1rem;
+  li {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    &:last-child {
+      border-bottom: 1px solid black;
+    }
+
+    .content {
+      padding: 1rem;
+      display: none;
+      background: #f2f2f2;
+    }
+  }
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  &:hover {
+    background: #f2f2f2;
+  }
+  .arrow-icon {
+    transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+  }
+
+  &.open {
+    background: #f2f2f2;
+    .arrow-icon {
+      transform: rotate(-180deg);
+    }
+  }
+  &.open + .content {
+    display: block;
+  }
+}
+
+.arrow-icon {
+  $arrow-height: 30px;
+  $arrow-width: 40px;
+  width: $arrow-width;
+  height: $arrow-height;
+  background: url("#{$imgPath}arrow-down.svg") center no-repeat;
+  background-size: $arrow-width $arrow-height;
+}
