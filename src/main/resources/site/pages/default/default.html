@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 </head>
 <body>
-<div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
-  <div data-portal-component="${component.path}" data-th-remove="tag"/>
+
+<div data-portal-region="main" class="main">
+  <div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
+    <div data-portal-component="${component.path}" data-th-remove="tag"/>
+  </div>
 </div>
+
+
 <script data-th-src="${portal.assetUrl({'_path=build/main.js'})}" src="../../../assets/build/main.js"></script>
 </body>
 </html>

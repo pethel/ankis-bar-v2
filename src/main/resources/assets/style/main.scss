@@ -4,7 +4,6 @@
 @import "core/typography";
 @import "core/spacing";
 @import "core/colors";
-
 @import "header";
 @import "footer";
 
@@ -12,19 +11,20 @@ html {
   box-sizing: border-box;
   font-size: 16px;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-body {
+body, .main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .grid-container {
-  width : 100%;
-  max-width : 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 

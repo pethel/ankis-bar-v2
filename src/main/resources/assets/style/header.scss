@@ -15,7 +15,7 @@
     width: $menu-width;
     right: -$menu-width;
     margin-top: 30px;
-    transition:right 1.0s cubic-bezier(0, 1, 0.5, 1);
+    transition: right 1.0s cubic-bezier(0, 1, 0.5, 1);
     &.open {
       right: 0;
     }
