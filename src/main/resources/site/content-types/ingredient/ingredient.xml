@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Ingredient</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <input type="TextLine" name="name">
+      <label>Name</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input type="TextLine" name="key">
+      <label>Key</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+  </form>
+</content-type>
