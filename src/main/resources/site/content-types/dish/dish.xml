@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Dish</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <input type="TextLine" name="name">
+      <label>Name</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input type="TextLine" name="key">
+      <label>Key</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="ingredients" type="ContentSelector">
+      <label>Ingredients</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <relationshipType>system:reference</relationshipType>
+        <allowContentType>ingredient</allowContentType>
+      </config>
+    </input>
+  </form>
+</content-type>
