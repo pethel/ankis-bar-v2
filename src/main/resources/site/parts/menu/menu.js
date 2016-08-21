@@ -1,7 +1,8 @@
 var contentLib = require('/lib/xp/content');
 var data = require('/lib/data');
+var i18nLib = require('/lib/xp/i18n');
 
-function getDishes(path) {
+function getDishes(path, locale) {
     return contentLib.getChildren({
         key: path,
         count: 1000000
@@ -12,10 +13,11 @@ function getDishes(path) {
 
         var ingredients = ingredientKeys.map(function (key) {
             var hit = contentLib.get({key: key});
-            return {
-                key: hit ? hit.data.key : ''
-            };
-        });
+            return i18nLib.localize({
+                key: hit.data.key,
+                locale: locale
+            });
+        }).join(', ');
 
         return {
             key: hit.data.key,
@@ -28,17 +30,16 @@ function getDishes(path) {
 
 exports.get = function (req) {
 
+    var selectedLocale = req.cookies.locale || 'se';
     var thymeleaf = require('/lib/xp/thymeleaf');
-    var flatPizzas = getDishes('/ankis-bar/dishes/pizza/flat');
-    var inbakadPizzas = getDishes('/ankis-bar/dishes/pizza/inbakad');
-    var doublePizzas = getDishes('/ankis-bar/dishes/pizza/double');
-    var salads = getDishes('/ankis-bar/dishes/sallad');
-    var alCarte = getDishes('/ankis-bar/dishes/al-carte');
-
-    log.info('%s', alCarte);
+    var flatPizzas = getDishes('/ankis-bar/dishes/pizza/flat', selectedLocale);
+    var inbakadPizzas = getDishes('/ankis-bar/dishes/pizza/inbakad', selectedLocale);
+    var doublePizzas = getDishes('/ankis-bar/dishes/pizza/double', selectedLocale);
+    var salads = getDishes('/ankis-bar/dishes/sallad', selectedLocale);
+    var alCarte = getDishes('/ankis-bar/dishes/al-carte', selectedLocale);
 
     var model = {
-        selectedLocale: req.cookies.locale || 'se',
+        selectedLocale: selectedLocale,
         flatPizzas: flatPizzas,
         inbakadPizzas: inbakadPizzas,
         doublePizzas: doublePizzas,

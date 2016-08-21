@@ -92,3 +92,5 @@ node_modules/
 
 ### Built files ###
 src/main/resources/assets/build/main.js
+
+npm-debug.log
