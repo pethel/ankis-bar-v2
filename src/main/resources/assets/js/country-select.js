@@ -1,6 +1,7 @@
+import Cookies from 'js-cookie';
+
 const countrySelect = document.querySelector('.country-select');
 const select = countrySelect.querySelector('div');
-const input = countrySelect.querySelector('input[name="locale"]');
 
 select.addEventListener('click', e => {
     e.preventDefault();
@@ -13,8 +14,8 @@ Array.from(countrySelect.querySelectorAll('li')).forEach(li => {
     li.addEventListener('click', e => {
         e.preventDefault();
         const locale = li.getAttribute('data-locale');
-        input.value = locale;
-        countrySelect.submit();
+        Cookies.set('locale', locale, {expires: 365});
+        window.location.reload();
     });
 
 });

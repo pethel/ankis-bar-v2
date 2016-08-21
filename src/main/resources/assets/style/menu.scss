@@ -74,4 +74,7 @@
 .menu-block-footer {
   font-family: 'OpenSans-Light-Italic';
   font-size: 0.8rem;
+  &:first-letter {
+    text-transform: capitalize;
+  }
 }

@@ -1,8 +1,10 @@
-exports.get = function () {
+exports.get = function (req) {
 
     var thymeleaf = require('/lib/xp/thymeleaf');
 
-    var model = {};
+    var model = {
+        selectedLocale: req.cookies.locale || 'se',
+    };
 
     var view = resolve('map.html');
 

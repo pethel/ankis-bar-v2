@@ -1,19 +1,3 @@
-exports.post = function (req) {
-
-    var portal = require('/lib/xp/portal');
-
-    return {
-        redirect: portal.pageUrl({id: portal.getSite()._id}),
-        cookies: {
-            locale: {
-                value: req.params.locale,
-                path: '/',
-                maxAge: 2000000,
-            }
-        }
-    }
-
-};
 
 exports.get = function (req) {
 

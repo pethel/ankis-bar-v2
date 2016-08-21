@@ -30,6 +30,6 @@
     "webpack": "1.13.1"
   },
   "dependencies": {
-    "scss-flex-grid": "^0.3.2"
+    "js-cookie": "2.1.2"
   }
 }
