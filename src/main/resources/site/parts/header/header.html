@@ -76,7 +76,11 @@
     <div class="grid-container">
       <nav id="main-navigation">
         <ul>
-          <li data-th-each="menuItem : ${menuItems}">
+          <li class="spacer-bottom-1">
+            <a href="tel:+4694210068"><span class="phone-icon"></span>0942 10068</a>
+          </li>
+          <li class="spacer-bottom-1"
+              data-th-each="menuItem : ${menuItems}">
             <a data-th-href="${portal.pageUrl({#strings.concat('_path=', menuItem.path)})}"
                data-th-text="${portal.localize({#strings.concat('_key=', menuItem.name), #strings.concat('_locale=', selectedLocale)})}">menuItem</a>
           </li>
