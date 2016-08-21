@@ -1,30 +1,49 @@
 <main class="grid-container menu">
-  <h1 class="spacer-bottom-2">Meny</h1>
-  <p class="spacer-bottom-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque dolorem fugiat, magni
-    omnis saepe tempora! Autem eligendi error et, exercitationem harum laudantium natus necessitatibus, nisi non, quis
-    quo repellendus.</p>
+  <h1 class="spacer-bottom-2"
+      data-th-text="${portal.localize({'_key=menu.header', #strings.concat('_locale=', selectedLocale)})}">
+    Meny
+  </h1>
+  <p class="spacer-bottom-1"
+     data-th-utext="${portal.localize({'_key=menu.text', #strings.concat('_locale=', selectedLocale)})}"></p>
   <ul>
     <li>
-      <a href="#" class="accordion-header js-accordion-header">
+      <a href="#"
+         class="accordion-header js-accordion-header"
+         aria-haspopup="true"
+         aria-controls="content-1">
         <span>Pizza</span>
         <span class="arrow-icon"></span>
       </a>
-      <div class="content">content</div>
+      <div class="content" id="content-1">
+        <div data-th-each="pizza : ${pizzas}">
+          <div data-th-text="${pizza.key}"></div>
+          <div data-th-each="ingredient : ${pizza.ingredients}">
+            <span data-th-text="${ingredient.key}"></span>
+          </div>
+        </div>
+      </div>
     </li>
     <li>
-      <a href="#" class="accordion-header js-accordion-header">
+      <a href="#"
+         class="accordion-header js-accordion-header"
+         aria-haspopup="true"
+         aria-controls="content-2">
         <span>Sallad</span>
         <span class="arrow-icon"></span>
       </a>
-      <div class="content">content</div>
+      <div class="content" id="content-2">content</div>
     </li>
     <li>
-      <a href="#" class="accordion-header js-accordion-header">
+      <a href="#"
+         class="accordion-header js-accordion-header"
+         aria-haspopup="true"
+         aria-controls="content-3">
         <span>À la carte</span>
         <span class="arrow-icon"></span>
       </a>
-      <div class="content">content</div>
+      <div class="content" id="content-3">content</div>
     </li>
   </ul>
 
 </main>
+
