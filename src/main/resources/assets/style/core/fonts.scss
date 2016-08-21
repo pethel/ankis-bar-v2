@@ -8,3 +8,12 @@
   src: url("#{$fontPath}open-sans.light.ttf");
 }
 
+@font-face {
+  font-family: 'OpenSans-Semibold';
+  src: url("#{$fontPath}open-sans.semibold.ttf");
+}
+
+@font-face {
+  font-family: 'OpenSans-Light-Italic';
+  src: url("#{$fontPath}open-sans.light-italic.ttf");
+}

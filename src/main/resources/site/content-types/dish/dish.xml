@@ -7,6 +7,10 @@
       <label>Key</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
+    <input type="TextLine" name="price">
+      <label>Price (SEK)</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
     <input name="ingredients" type="ContentSelector">
       <label>Ingredients</label>
       <occurrences minimum="0" maximum="0"/>

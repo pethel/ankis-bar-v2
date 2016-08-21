@@ -19,6 +19,7 @@ function getDish(path) {
 
         return {
             key: hit.data.key,
+            price: hit.data.price,
             ingredients: ingredients
         }
     });

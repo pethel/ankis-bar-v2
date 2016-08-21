@@ -12,28 +12,38 @@
          class="accordion-header js-accordion-header"
          aria-haspopup="true"
          aria-controls="content-1">
-        <span>Pizza</span>
+        <span
+          data-th-utext="${portal.localize({'_key=menu.pizza.header', #strings.concat('_locale=', selectedLocale)})}">Pizza</span>
         <span class="arrow-icon"></span>
       </a>
       <div class="content" id="content-1">
 
-        <section data-th-if="${not #lists.isEmpty(flatPizzas)}">
-          <h1
-            data-th-text="${portal.localize({'_key=menu.flat-pizza.header', #strings.concat('_locale=', selectedLocale)})}">
+        <section data-th-if="${not #lists.isEmpty(flatPizzas)}" class="spacer-bottom-2">
+          <h1 class="spacer-bottom-1"
+              data-th-text="${portal.localize({'_key=menu.flat-pizza.header', #strings.concat('_locale=', selectedLocale)})}">
             Flat</h1>
-          <div data-th-each="pizza : ${flatPizzas}">
-            <div class="menu-block">
-              <div
-                data-th-text="${portal.localize({#strings.concat('_key=', pizza.key), #strings.concat('_locale=', selectedLocale)})}">
-                pizza.key
-              </div>
-              <div data-th-each="ingredient, iterStat : ${pizza.ingredients}" data-th-remove="tag">
-                <span data-th-if="${iterStat.index != iterStat.size-1}" data-th-remove="tag">
-                  <span data-th-text="${#strings.concat(portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)}), ',')}">ingredient.key</span>
-                </span>
-                <span data-th-unless="${iterStat.index != iterStat.size-1}" data-th-remove="tag">
-                  <span data-th-text="${portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)})}">ingredient.key</span>
-                </span>
+          <div class="menu-blocks">
+            <div data-th-each="pizza : ${flatPizzas}" data-th-remove="tag">
+              <div class="menu-block spacer-bottom-1">
+                <div class="menu-block-header spacer-bottom-1">
+                  <div
+                    data-th-text="${portal.localize({#strings.concat('_key=', pizza.key), #strings.concat('_locale=', selectedLocale)})}">
+                    pizza.key
+                  </div>
+                  <div data-th-text="${#strings.concat(pizza.price, ' :-') }"></div>
+                </div>
+                <div class="menu-block-footer">
+                  <div data-th-each="ingredient, iterStat : ${pizza.ingredients}" data-th-remove="tag">
+                  <span data-th-if="${iterStat.index != iterStat.size-1}" data-th-remove="tag">
+                    <span
+                      data-th-text="${#strings.concat(portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)}), ',')}">ingredient.key</span>
+                  </span>
+                    <span data-th-unless="${iterStat.index != iterStat.size-1}" data-th-remove="tag">
+                    <span
+                      data-th-text="${portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)})}">ingredient.key</span>
+                  </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -51,10 +61,12 @@
               </div>
               <div data-th-each="ingredient, iterStat : ${pizza.ingredients}" data-th-remove="tag">
                 <span data-th-if="${iterStat.index != iterStat.size-1}" data-th-remove="tag">
-                  <span data-th-text="${#strings.concat(portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)}), ',')}">ingredient.key</span>
+                  <span
+                    data-th-text="${#strings.concat(portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)}), ',')}">ingredient.key</span>
                 </span>
                 <span data-th-unless="${iterStat.index != iterStat.size-1}" data-th-remove="tag">
-                  <span data-th-text="${portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)})}">ingredient.key</span>
+                  <span
+                    data-th-text="${portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)})}">ingredient.key</span>
                 </span>
               </div>
             </div>
@@ -73,10 +85,12 @@
               </div>
               <div data-th-each="ingredient, iterStat : ${pizza.ingredients}" data-th-remove="tag">
                 <span data-th-if="${iterStat.index != iterStat.size-1}" data-th-remove="tag">
-                  <span data-th-text="${#strings.concat(portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)}), ',')}">ingredient.key</span>
+                  <span
+                    data-th-text="${#strings.concat(portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)}), ',')}">ingredient.key</span>
                 </span>
                 <span data-th-unless="${iterStat.index != iterStat.size-1}" data-th-remove="tag">
-                  <span data-th-text="${portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)})}">ingredient.key</span>
+                  <span
+                    data-th-text="${portal.localize({#strings.concat('_key=', ingredient.key), #strings.concat('_locale=', selectedLocale)})}">ingredient.key</span>
                 </span>
               </div>
             </div>
