@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html data-th-attr="lang=en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="spacer-bottom-4"></div>
+  <p><span data-th-utext="${errorCode}"></span>- Something went wrong. Please try again later.</p>
+</div>
+
+<script data-th-src="${portal.assetUrl({'_path=build/main.js'})}" src="../../../assets/build/main.js"></script>
+</body>
+</html>
