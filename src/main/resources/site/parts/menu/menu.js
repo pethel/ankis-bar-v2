@@ -1,7 +1,7 @@
 var contentLib = require('/lib/xp/content');
 var data = require('/lib/data');
 
-function getDish(path) {
+function getDishes(path) {
     return contentLib.getChildren({
         key: path,
         count: 1000000
@@ -29,15 +29,21 @@ function getDish(path) {
 exports.get = function (req) {
 
     var thymeleaf = require('/lib/xp/thymeleaf');
-    var flatPizzas = getDish('/ankis-bar/dishes/pizza/flat');
-    var inbakadPizzas = getDish('/ankis-bar/dishes/pizza/inbakad');
-    var doublePizzas = getDish('/ankis-bar/dishes/pizza/double');
+    var flatPizzas = getDishes('/ankis-bar/dishes/pizza/flat');
+    var inbakadPizzas = getDishes('/ankis-bar/dishes/pizza/inbakad');
+    var doublePizzas = getDishes('/ankis-bar/dishes/pizza/double');
+    var salads = getDishes('/ankis-bar/dishes/sallad');
+    var alCarte = getDishes('/ankis-bar/dishes/al-carte');
+
+    log.info('%s', alCarte);
 
     var model = {
         selectedLocale: req.cookies.locale || 'se',
         flatPizzas: flatPizzas,
         inbakadPizzas: inbakadPizzas,
-        doublePizzas: doublePizzas
+        doublePizzas: doublePizzas,
+        salads: salads,
+        alCarte: alCarte
     };
 
     var view = resolve('menu.html');
