@@ -1,32 +1,42 @@
-exports.get = function (req) {
+var contentLib = require('/lib/xp/content');
+var data = require('/lib/data');
 
-    var thymeleaf = require('/lib/xp/thymeleaf');
-    var contentLib = require('/lib/xp/content');
-    var data = require('/lib/data');
-
-    var pizzas = contentLib.getChildren({
-        key: '/ankis-bar/dishes/pizza',
+function getDish(path) {
+    return contentLib.getChildren({
+        key: path,
         count: 1000000
     }).hits.map(function (hit) {
+
         var ingredientKeys = hit.data.ingredients || [];
         ingredientKeys = data.forceArray(ingredientKeys);
+
         var ingredients = ingredientKeys.map(function (key) {
-            var hit = contentLib.get({
-                key: key,
-            });
+            var hit = contentLib.get({key: key});
             return {
-                key: hit.data.key
+                key: hit ? hit.data.key : ''
             };
         });
+
         return {
             key: hit.data.key,
             ingredients: ingredients
         }
     });
+}
+
+
+exports.get = function (req) {
+
+    var thymeleaf = require('/lib/xp/thymeleaf');
+    var flatPizzas = getDish('/ankis-bar/dishes/pizza/flat');
+    var inbakadPizzas = getDish('/ankis-bar/dishes/pizza/inbakad');
+    var doublePizzas = getDish('/ankis-bar/dishes/pizza/double');
 
     var model = {
         selectedLocale: req.cookies.locale || 'se',
-        pizzas: pizzas
+        flatPizzas: flatPizzas,
+        inbakadPizzas: inbakadPizzas,
+        doublePizzas: doublePizzas
     };
 
     var view = resolve('menu.html');
