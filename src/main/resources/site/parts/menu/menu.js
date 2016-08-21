@@ -4,7 +4,7 @@ var i18nLib = require('/lib/xp/i18n');
 var cacheLib = require('/lib/xp/cache');
 var menuCache = cacheLib.newCache({
     size: 10,
-    expire: 60 * 60 * 7 * 1
+    expire: 60 * 60 * 24 * 7
 });
 
 function getDishes(path, locale) {
