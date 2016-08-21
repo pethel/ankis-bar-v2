@@ -1,6 +1,11 @@
 var contentLib = require('/lib/xp/content');
 var data = require('/lib/data');
 var i18nLib = require('/lib/xp/i18n');
+var cacheLib = require('/lib/xp/cache');
+var menuCache = cacheLib.newCache({
+    size: 10,
+    expire: 60 * 60 * 7 * 1
+});
 
 function getDishes(path, locale) {
     return contentLib.getChildren({
@@ -32,19 +37,25 @@ exports.get = function (req) {
 
     var selectedLocale = req.cookies.locale || 'se';
     var thymeleaf = require('/lib/xp/thymeleaf');
-    var flatPizzas = getDishes('/ankis-bar/dishes/pizza/flat', selectedLocale);
-    var inbakadPizzas = getDishes('/ankis-bar/dishes/pizza/inbakad', selectedLocale);
-    var doublePizzas = getDishes('/ankis-bar/dishes/pizza/double', selectedLocale);
-    var salads = getDishes('/ankis-bar/dishes/sallad', selectedLocale);
-    var alCarte = getDishes('/ankis-bar/dishes/al-carte', selectedLocale);
+
+    var cacheKey = 'menu-' + selectedLocale;
+    var menuData = menuCache.get(cacheKey, function () {
+        return {
+            flatPizzas: getDishes('/ankis-bar/dishes/pizza/flat', selectedLocale),
+            inbakadPizzas: getDishes('/ankis-bar/dishes/pizza/inbakad', selectedLocale),
+            doublePizzas: getDishes('/ankis-bar/dishes/pizza/double', selectedLocale),
+            salads: getDishes('/ankis-bar/dishes/sallad', selectedLocale),
+            alCarte: getDishes('/ankis-bar/dishes/al-carte', selectedLocale)
+        };
+    });
 
     var model = {
         selectedLocale: selectedLocale,
-        flatPizzas: flatPizzas,
-        inbakadPizzas: inbakadPizzas,
-        doublePizzas: doublePizzas,
-        salads: salads,
-        alCarte: alCarte
+        flatPizzas: menuData.flatPizzas,
+        inbakadPizzas: menuData.inbakadPizzas,
+        doublePizzas: menuData.doublePizzas,
+        salads: menuData.salads,
+        alCarte: menuData.alCarte
     };
 
     var view = resolve('menu.html');
