@@ -25,6 +25,7 @@
 
   var cookieDomainConfiguration = document.location.hostname === 'localhost' ? 'none' : 'auto';
   ga('create', googleUATrackingId, cookieDomainConfiguration);
+  ga('send', 'pageview', location.pathname);
 </script>
 </body>
 </html>
