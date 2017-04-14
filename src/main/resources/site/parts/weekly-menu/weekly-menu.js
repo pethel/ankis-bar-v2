@@ -1,16 +1,9 @@
 var contentLib = require('/lib/xp/content');
 var thymeleaf = require('/lib/xp/thymeleaf');
 var data = require('/lib/data');
-var moment = require('/lib/moment');
+var dateUtil = require('/lib/date-util');
 
-function isInCurrentWeek(date) {
-    var startOfWeek = moment().startOf('isoWeek');
-    var endOfWeek = moment().endOf('isoWeek');
-    var now = moment(date);
-    return now.isBetween(startOfWeek, endOfWeek)
-}
-
-exports.get = function (req) {
+exports.get = function () {
 
     var weeklyMenu = contentLib.getChildren({
         key: '/ankis-bar/dagens/',
@@ -25,7 +18,7 @@ exports.get = function (req) {
             friday: hit.data.friday
         };
     }).filter(function(menu) {
-      return isInCurrentWeek(menu.week);
+      return dateUtil.isInCurrentWeek(menu.week);
     });
 
     log.info("moment().startOf('isoWeek') %s",  moment().startOf('isoWeek').week());
