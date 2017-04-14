@@ -1,34 +1,34 @@
+var dateUtil = require('/lib/date-util');
+var contentLib = require('/lib/xp/content');
 exports.get = function (req) {
 
     var portal = require('/lib/xp/portal');
     var thymeleaf = require('/lib/xp/thymeleaf');
     var menu = require('/lib/menu');
+    var selectedLocale = req.cookies.locale || 'se';
 
-    var menuItems = menu.getSiteMenu();
     var component = portal.getComponent();
 
-    var homeUrl = portal.pageUrl({id: portal.getSite()._id});
-    /* var weeklyMenu = contentLib.getChildren({
+    var homeUrl = portal.pageUrl({ id: portal.getSite()._id });
+    var showWeeklyMenu = !!contentLib.getChildren({
         key: '/ankis-bar/dagens/',
-        count: 1000000
-    }).hits.map(function (hit) {
-        return {
-            week: new Date(hit.data.week),
-            monday: hit.data.monday,
-            tuesday: hit.data.tuesday,
-            wednesday: hit.data.wednesday,
-            thursday: hit.data.thursday,
-            friday: hit.data.friday
-        };
-    }).filter(function(menu) {
-        return isInCurrentWeek(menu.week);
-    });*/
+        count: 1
+    }).hits.filter(function (hit) {
+        return dateUtil.isInCurrentWeek(new Date(hit.data.week));
+    }).length;
 
+    var menuItems = menu.getSiteMenu()
+        .filter(function (menu) {
+            return !(!showWeeklyMenu && menu.name === 'veckomeny');
+        })
+        .filter(function (menu) {
+            return !(menu.name === 'veckomeny' && selectedLocale !== 'se');
+        });
 
     var model = {
         component: component,
         menuItems: menuItems,
-        selectedLocale: req.cookies.locale || 'se',
+        selectedLocale: selectedLocale,
         homeUrl: homeUrl
     };
 

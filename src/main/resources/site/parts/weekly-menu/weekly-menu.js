@@ -2,15 +2,17 @@ var contentLib = require('/lib/xp/content');
 var thymeleaf = require('/lib/xp/thymeleaf');
 var data = require('/lib/data');
 var dateUtil = require('/lib/date-util');
+var moment = require('moment');
 
 exports.get = function () {
 
     var weeklyMenu = contentLib.getChildren({
         key: '/ankis-bar/dagens/',
-        count: 1000000
+        count: 1
     }).hits.map(function (hit) {
         return {
             week: new Date(hit.data.week),
+            price:hit.data.price.toFixed(2),
             monday: hit.data.monday,
             tuesday: hit.data.tuesday,
             wednesday: hit.data.wednesday,
@@ -20,8 +22,6 @@ exports.get = function () {
     }).filter(function(menu) {
       return dateUtil.isInCurrentWeek(menu.week);
     });
-
-    log.info("moment().startOf('isoWeek') %s",  moment().startOf('isoWeek').week());
 
     var model = {
         menu: weeklyMenu[0],
@@ -34,5 +34,4 @@ exports.get = function () {
         body: thymeleaf.render(view, model),
         contentType: 'text/html'
     };
-
 };
