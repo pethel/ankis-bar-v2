@@ -1,0 +1,36 @@
+<main class="grid-container">
+  <h1 class="spacer-bottom-2">Dagens rätt <br>
+    <span class="text-normal indent-left-1">- Vecka <span data-th-utext="${week}"/></span>
+  </h1>
+  <div data-th-if="${menu}">
+    <div class="weekly-menu indent-2 spacer-bottom-2">
+      <div class="spacer-bottom-2">
+        <h2 class="spacer-bottom-1">Måndag</h2>
+        <div class="indent-left-1" data-th-utext="${menu.monday}"></div>
+      </div>
+      <div class="spacer-bottom-2">
+        <h2 class="spacer-bottom-1">Tisdag</h2>
+        <div class="indent-left-1" data-th-utext="${menu.tuesday}"></div>
+      </div>
+      <div class="spacer-bottom-2">
+        <h2 class="spacer-bottom-1">Onsdag</h2>
+        <div class="indent-left-1" data-th-utext="${menu.wednesday}"></div>
+      </div>
+      <div class="spacer-bottom-2">
+        <h2 class="spacer-bottom-1">Torsdag</h2>
+        <div class="indent-left-1" data-th-utext="${menu.thursday}"></div>
+      </div>
+      <div class="spacer-bottom-2">
+        <h2 class="spacer-bottom-1">Fredag</h2>
+        <div class="indent-left-1" data-th-utext="${menu.friday}"></div>
+      </div>
+    </div>
+    <div class="spacer-bottom-2 indent-left-1">
+      Varmt välkommna til oss. <br>
+      Vi reserverar oss för slutförsäljning och eventualla ändringar i menyn.
+    </div>
+  </div>
+  <div data-th-unless="${menu}">
+    Ingen meny for vecka <span data-th-utext="${week}"/> funnen.
+  </div>
+</main>
