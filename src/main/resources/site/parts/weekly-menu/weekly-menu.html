@@ -1,12 +1,13 @@
 <main class="grid-container">
-  <h1 class="spacer-bottom-2 indent-left-1">Dagens rätt <br><span class="text-normal indent-left-1">- Vecka <span data-th-utext="${week}"/></span>
+  <h1 class="spacer-bottom-2 indent-left-1">Dagens rätt <br><span class="text-normal indent-left-1">- Vecka <span
+    data-th-utext="${week}"/></span>
   </h1>
   <div data-th-if="${menu}">
     <div class="spacer-bottom-1 indent-left-1 indent-right-1">
       Till dagens rätt ingår sallad, dryck, smör och bröd.
     </div>
     <div class="spacer-bottom-1 indent-left-1 indent-right-1">
-      Pris <span data-th-utext="${menu.price}"/> kr.
+      <span data-th-utext="${menu.price}"/> :-
     </div>
     <div class="weekly-menu indent-2 spacer-bottom-2">
       <div class="spacer-bottom-2">
