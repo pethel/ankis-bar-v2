@@ -5,7 +5,8 @@
   "scripts": {
     "build": "./gradlew build",
     "deploy": "./gradlew deploy",
-    "watch": "./gradlew deploy -t"
+    "watch": "./gradlew deploy -t",
+    "deploy-docker": "./docker/deploy.sh"
   },
   "author": "Peter Hellstrand",
   "license": "ISC",
