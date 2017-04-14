@@ -13,3 +13,6 @@ Deploy to docker container with
 
 Se the logs 
 `$docker logs xp-app`
+
+To import some data for development
+`$./docker/import.sh`
